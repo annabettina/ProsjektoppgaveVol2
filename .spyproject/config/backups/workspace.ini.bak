@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['defenitions.py', 'input.txt', 'main.py', 'structure_visualization.py']
+recent_files = ['defenitions.py', 'input.txt', 'main.py', 'structure_visualization.py', 'boyestivheten.py']
 

@@ -44,10 +44,16 @@ def lesinput():
  
     # Leser lastdata
     # Bestem selv verdiene som er nødvendig å lese inn, samt hva verdiene som leses inn skal representere
-    last = np.loadtxt(fid, dtype = float, max_rows = nlast)     # <-- Forslag til innlesing av lastdata
+    last = np.loadtxt(fid, dtype = float, max_rows = nlast)     # <-- Forslag til innlesing av 
+    
+    #Leser antall laster som virker på rammen
+    nmoment = int(fid.readline())
+    
+    moment = np.loadtxt(fid, dtype=int,max_rows=nmoment)
  
     #Leser antall tverrsnitt
     ntvsnitt = int(fid.readline())
+    
     tvsnitt = np.loadtxt(fid,dtype=float,max_rows = ntvsnitt)
     
     # Lukker input-filen
