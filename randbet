@@ -1,0 +1,14 @@
+import numpy as np
+def randbetingelser ( npunkt , punkt , K , R ):
+    Kn = K.copy () # Oppretter ny variabel for aa lagre stivhetsmatrisen tatt
+    # hensyn til randbetingelsene i.
+    Rn = R.copy () # Oppretter ny variabel for aa lagre lastvektoren tatt hensyn
+    # til randbetingelsene i.
+    for i in range ( npunkt ):
+        if punkt [i][2] == 1: # Knutepunktet er fast innspent og tillater ikke rotasjon .
+            Rn [i] = 0 # Nuller ut knutepunkt i lastvektoren.
+            for j in range (npunkt):
+                Kn [i][j] = 0 # Nuller ut rad i stivhetsmatrisen .
+                Kn [j][i] = 0 # Nuller ut kolonne i stivhetsmatrisen .
+            Kn [i][i] = 1 # Setter diagonalelementet ulik null for å kunne lose
+    return Kn , Rn
