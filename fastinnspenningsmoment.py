@@ -43,4 +43,3 @@ def fastmomenter(npunkt, elem, nelem, nlast, last, elementlengde):
 
     return fastinnspenningsmoment
 
-
