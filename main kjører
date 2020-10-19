@@ -2,8 +2,14 @@ import numpy as np
 from readfile import readfile
 from lengder import lengder
 from arealmoment import arealmoment
+from boyestivhet import boyestivhet
 from elementstivhetsmatrise import elementstivhetsmatrise
 from fastinnspenningsmoment import fastmomenter
+from lastvektor import lastvektor
+from stivhetsmatrise import stivhetsmatrise
+from randbet import randbetingelser
+from rotasjoner import rotasjon
+from endemoment import endeM
 
 
 
@@ -11,8 +17,21 @@ def main():
     npunkt, punkt, nelem, elem, nlast, last, ntvsnitt, tvsnitt = readfile()
     elementlengder = lengder(punkt, elem, nelem)
     I = arealmoment(ntvsnitt, tvsnitt, nelem, elem)
-    esm = elementstivhetsmatrise( nelem, elem , elementlengder, I)
-    fim = fastmomenter(npunkt, elem, nelem, nlast, last, elementlengder)
+    EI = boyestivhet(nelem, elem, I)
+    ESM = elementstivhetsmatrise( nelem, elem , elementlengder, I)
+    FIM = fastmomenter(npunkt, elem, nelem, nlast, last, elementlengder)
+    R = lastvektor(npunkt, nelem, elem, FIM, nlast, last)
+    K = stivhetsmatrise(npunkt, nelem, elem, elementlengder, EI)
+    Kn, Rn = randbetingelser ( npunkt , punkt , K , R )
+    rot = rotasjon(Kn, Rn)
+    moment = endeM ( nelem , elem , elementlengder , rot , FIM , EI )
+    
+    print (moment)
+    
+    
     
 
 main()
+
+
+
