@@ -1,0 +1,18 @@
+import numpy as np
+from readfile import readfile
+from lengder import lengder
+from arealmoment import arealmoment
+from elementstivhetsmatrise import elementstivhetsmatrise
+from fastinnspenningsmoment import fastmomenter
+
+
+
+def main():
+    npunkt, punkt, nelem, elem, nlast, last, ntvsnitt, tvsnitt = readfile()
+    elementlengder = lengder(punkt, elem, nelem)
+    I = arealmoment(ntvsnitt, tvsnitt, nelem, elem)
+    esm = elementstivhetsmatrise( nelem, elem , elementlengder, I)
+    fim = fastmomenter(npunkt, elem, nelem, nlast, last, elementlengder)
+    
+
+main()
