@@ -16,7 +16,7 @@ def arealmoment(ntvsnitt, tvsnitt, nelem, elem):
             + 1/12 * tft * bft**3 + tft * bft * 0.5 * (hs + tft)
             + 1/12 * tfb * bfb**3 +  tfb * bfb * 0.5 * (hs + tfb)
             andreArealmoment[i] = I
-           
+              
         elif elem[i][4] == 2: #hvis rør
             tvsnitt_r = tvsnitt[1]
             d = tvsnitt_r[0] #diameter
@@ -27,6 +27,3 @@ def arealmoment(ntvsnitt, tvsnitt, nelem, elem):
             andreArealmoment[i] = I
 
     return andreArealmoment #returnerer 2. arealmoment
-
-
-
